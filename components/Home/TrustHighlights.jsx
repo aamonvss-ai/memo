@@ -60,36 +60,47 @@ export default function TrustHighlights() {
   ];
 
   return (
-    <section className="py-14 px-6 bg-[var(--background)] text-[var(--foreground)]">
+    <section className="py-12 px-4 bg-[var(--background)] text-[var(--foreground)]">
       <div className="max-w-7xl mx-auto">
 
-        {/* Heading (optional but recommended) */}
-        <div className="text-center mb-10">
-          <h2 className="text-2xl font-extrabold tracking-tight">
+        {/* Heading */}
+        <div className="text-center mb-8">
+          <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight">
             Why Players Trust Us
           </h2>
-          <p className="text-sm text-[var(--muted)] mt-2">
+          <p className="text-xs sm:text-sm text-[var(--muted)] mt-2">
             Secure • Fast • Verified MLBB Topups
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        {/* MOBILE: horizontal scroll */}
+        <div
+          className="
+            flex gap-4 overflow-x-auto pb-2
+            snap-x snap-mandatory
+            sm:grid sm:grid-cols-3
+            lg:grid-cols-6
+          "
+        >
           {items.map((item, i) => {
             const Icon = item.icon;
             return (
               <div
                 key={i}
                 className="
+                  snap-center
+                  min-w-[140px]
+                  sm:min-w-0
                   group relative
                   bg-[var(--card)]
                   border border-[var(--border)]
-                  rounded-2xl p-6
+                  rounded-2xl p-4 sm:p-6
                   flex flex-col items-center text-center
                   transition-all duration-300
-                  hover:-translate-y-1 hover:shadow-2xl
+                  hover:-translate-y-1 hover:shadow-xl
                 "
               >
-                {/* Animated accent ring */}
+                {/* Accent ring */}
                 <div
                   className={`
                     absolute -inset-px rounded-2xl opacity-0
@@ -102,33 +113,35 @@ export default function TrustHighlights() {
                 <div
                   className={`
                     relative z-10
-                    w-14 h-14 rounded-xl
+                    w-12 h-12 sm:w-14 sm:h-14
+                    rounded-xl
                     flex items-center justify-center
                     bg-black/40
                     ring-1 ring-white/10
                     ${item.text}
-                    shadow-lg ${item.glow}
+                    shadow-md ${item.glow}
                     transition-transform duration-300
                     group-hover:scale-110
                   `}
                 >
-                  <Icon className="text-xl" />
+                  <Icon className="text-lg sm:text-xl" />
                 </div>
 
                 {/* Text */}
                 <p
-                  className={`mt-4 text-xl font-extrabold tracking-tight ${item.text}`}
+                  className={`mt-3 sm:mt-4 text-lg sm:text-xl font-extrabold ${item.text}`}
                 >
                   {item.title}
                 </p>
 
-                <p className="text-sm text-[var(--muted)] mt-1">
+                <p className="text-xs sm:text-sm text-[var(--muted)] mt-1">
                   {item.subtitle}
                 </p>
               </div>
             );
           })}
         </div>
+
       </div>
     </section>
   );
