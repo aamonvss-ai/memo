@@ -33,9 +33,9 @@ export default function HeroSection() {
     <GamesPage/>
       <ScrollingNoticeBand/>
     {/* <HomeSection/> */}
-    <div className="p-4 m-2">
+    {/* <div className="p-4 m-2">
         <MLBBPurchaseGuide/>
-    </div>
+    </div> */}
    
     <HomeServices/>
     <TrustHighlights/>
