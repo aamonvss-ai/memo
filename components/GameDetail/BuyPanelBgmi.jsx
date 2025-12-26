@@ -27,7 +27,7 @@ export default function BuyPanel({
 
         <div className="flex-1 min-w-0">
           <h2 className="text-lg font-bold">
-            💎 {activeItem.itemName}
+             {activeItem.itemName}
           </h2>
 
           <div className="flex items-center gap-2 mt-1.5">

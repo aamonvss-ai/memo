@@ -26,7 +26,7 @@ export default function ItemGrid({
             }`}
         >
           <p className="text-sm font-semibold truncate">
-            💎 {item.itemName}
+             {item.itemName}
           </p>
 
           <p className="mt-1 text-lg font-bold text-[var(--accent)]">

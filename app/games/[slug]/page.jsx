@@ -23,7 +23,7 @@ export default function GameDetailPage() {
   const [activeItem, setActiveItem] = useState(null);
   const [redirecting, setRedirecting] = useState(false);
   const isBGMI =
-  game?.gameName?.toLowerCase() === "pubg mobile";
+    game?.gameName?.toLowerCase() === "pubg mobile" || game?.gameName?.toLowerCase() === "bgmi";
 
 
   /* ================= FETCH GAME ================= */
@@ -71,7 +71,7 @@ export default function GameDetailPage() {
     //   `/games/${slug}/buy/${item.itemSlug}?${query.toString()}`
     // );
      const isBGMI =
-    game?.gameName?.toLowerCase() === "pubg mobile";
+    game?.gameName?.toLowerCase() === "pubg mobile" || game?.gameName?.toLowerCase() === "bgmi";
 
   const basePath = isBGMI
     ? `/games/pubg/${slug}/buy`
