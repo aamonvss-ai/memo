@@ -24,7 +24,7 @@ export default function WalletTab({
 
   // Load phone
   useEffect(() => {
-    const phone = localStorage.getItem("phone");
+    const phone = sessionStorage.getItem("phone");
     if (phone) setStoredPhone(phone);
   }, []);
 
@@ -45,7 +45,7 @@ export default function WalletTab({
     }
 
     setLoading(true);
-    const userId = localStorage.getItem("userId");
+    const userId = sessionStorage.getItem("userId");
 
     const res = await fetch("/api/wallet/create-order", {
       method: "POST",
@@ -65,7 +65,7 @@ export default function WalletTab({
       return;
     }
 
-    localStorage.setItem("pending_order", data.orderId);
+    sessionStorage.setItem("pending_order", data.orderId);
     window.location.href = data.paymentUrl;
   };
 
